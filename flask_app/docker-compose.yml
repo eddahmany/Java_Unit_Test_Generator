@@ -1,0 +1,11 @@
+version:  "3.7"
+
+services:
+  method2test:
+    container_name: java_unit_test_generator
+    image: ayoubEdh/java_unit_test_generator
+    ports:
+      - "5000:5000"
+    build:
+      context: .
+      dockerfile: Dockerfile

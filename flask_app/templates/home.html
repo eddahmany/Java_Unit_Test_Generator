@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/monokai-sublime.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/theme/darcula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <title>Java Unit Test Generator</title>
+</head>
+<body>
+    <div id="uploadingIndicator" class="loading-indicator">
+        <img src="/static/Uploading.gif" alt="Uploading...">
+        <p>Uploading...</p>
+    </div>
+
+    <div id="generatingIndicator" class="loading-indicator">
+        <img src="/static/Generating.gif" alt="Generating...">
+        <p>Generating...</p>
+    </div>
+
+    <div class="container">
+        <h1>Java Unit Test Generator</h1>
+
+        <div class="section">
+            <div class="section-title" data-section-number="1">Upload Fine-tuned Models</div>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="plbartCheckbox"> PLBART (Size : 406M params)</label>
+                <label><input type="checkbox" id="santacoderCheckbox"> SANTACODER (Size : 1.23B params)</label>
+            </div>
+            <button id="downloadButton" class="button">Upload</button>
+            <div class="output-list-container">
+                <label style="font-weight: bold; margin-left: 10px;">Uploaded Models</label>
+                <ul id="downloadedModelsList" class="output-list"></ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title" data-section-number="2">Choose Fine-tuned Models</div>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="choosePlbartCheckbox"> PLBART (Size : 406M params)</label>
+                <label><input type="checkbox" id="chooseSantacoderCheckbox"> SANTACODER (Size : 1.23B params)</label>
+            </div>
+            <button id="chooseButton" class="button">Choose</button>
+            <div class="output-list-container">
+                <label style="font-weight: bold; margin-left: 10px;">Chosen Models</label>
+                <ul id="ChosenModelsList" class="output-list"></ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title" data-section-number="3">Insert JAVA Code (example below)</div>
+            <div class="textarea-container">
+                <textarea id="inputMethod" placeholder="Enter Java method here..."></textarea>
+            </div>
+            <div class="section-title" data-section-number="4">Generate Tests</div>
+            <button id="generateButton" class="button">Generate</button>
+            <div class="output-container">
+                <div class="output" id="plbartOutput">
+                    <div class="output-title">Fine-tuned PLBART Output</div>
+                    <textarea id="plbartOutputTextArea" readonly></textarea>
+                </div>
+                <div class="output" id="santacoderOutput">
+                    <div class="output-title">Fine-tuned SANTACODER Output (GPU strongly recommended for inference !)</div>
+                    <textarea id="santacoderOutputTextArea" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
