@@ -9,6 +9,7 @@ This project is a web application built with Flask that provides functionality t
 The application provides users with the choice of utilizing two specialized models that have been fine-tuned using approximately 1000 examples of Java code paired with their corresponding tests:
 
 **PLBART**: This Seq2Seq model, detailed in its paper (https://arxiv.org/abs/2103.06333), is optimized for tasks involving code-to-text, text-to-code, and code-to-code transformations.
+
 **SANTACODER**: Detailed in its paper (https://arxiv.org/abs/2301.03988), this model is a causal language model capable of performing code generation tasks as well.
 
 ## Application structure :
